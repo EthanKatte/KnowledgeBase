@@ -1,4 +1,4 @@
-
+import time
 '''
 
 Array Manipulation:
@@ -11,7 +11,42 @@ Array Manipulation:
  - Ternary search: a divide-and-conquer algorithm that repeatedly divides the search interval into three parts, reducing the search space by a factor of 2/3 each time. Can be used on both sorted and unsorted arrays.
  - Fibonacci search: another modification of binary search that uses the Fibonacci sequence to determine the next position to check. Can be faster than binary search for certain types of data.
 
+'''
+class ReturnValue():
+    time = None
+    operations = None
+    retVals = None
+    def __init__(self):
+        pass
 
+
+
+
+class array():
+
+    def __init__(self, values):
+        self.values = values
+
+    def linerSearch(self, target): #O(n) Time Complexity
+        start = time.time()
+        ret = ReturnValue()
+        for element in self.values:
+            ret.operations+=1
+            if target == element:
+                ret.retVals = target
+                ret.time = time.time() - start
+                return ret
+            
+
+
+
+
+
+
+
+
+
+'''
 - Sort
  - Bubble sort: repeatedly swaps adjacent elements if they are in the wrong order
  - Selection sort: selects the minimum value and places it at the beginning, then repeats with the rest of the unsorted array
@@ -38,6 +73,10 @@ Tree Manipulation:
  - Heap trees: a binary tree where each parent node is greater than or equal to its children (max heap) or less than or equal to its children (min heap). Heaps can be used to implement priority queues and sorting algorithms such as heapsort.
  - Trie trees: a tree-like data structure used to store and retrieve associative data, such as strings or sequences. Each node represents a prefix of a word, and the edges represent the next character in the word.
  - Segment trees: a tree-like data structure used to efficiently answer range queries on an array, such as finding the sum, minimum, or maximum of a range of elements. Each node represents a range of the array, and the values at each node are computed from the values of its children.
+
+ - Tri-node restructuring
+ 
+
 
 - Linked Lists:
  - Singly linked list: a linked list where each node has a reference to the next node but not the previous node.
