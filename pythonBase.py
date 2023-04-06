@@ -16,9 +16,6 @@ class ReturnValue():
     time = None
     operations = None
     retVals = None
-    def __init__(self):
-        pass
-
 
 
 
@@ -27,7 +24,8 @@ class array():
     def __init__(self, values):
         self.values = values
 
-    def linerSearch(self, target): #O(n) Time Complexity
+    #O(n) Time Complexity
+    def linerSearch(self, target): 
         start = time.time()
         ret = ReturnValue()
         for element in self.values:
@@ -36,6 +34,33 @@ class array():
                 ret.retVals = target
                 ret.time = time.time() - start
                 return ret
+            
+    #O(log(n)) Time Complexity
+    def binarySearch(self, target): 
+        start = time.time()
+        ret = ReturnValue()
+        vals = self.values
+        right = len(vals)-1
+        left = 0
+
+        while left <= right:
+            mid = (left + right)//2
+            if vals[mid] == target:
+                end = time.time()
+                ret.time = end-start
+                ret.retVals = target
+                return ret
+            elif vals[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+        
+
+        end = time.time()
+        ret.time = end-start
+        ret.retVals = None
+        return ret
+        return
             
 
 
